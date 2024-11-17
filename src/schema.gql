@@ -1,0 +1,62 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Consorcio {
+  id: Int!
+  titulo: String!
+  tipo: String!
+  valor: Int!
+  quantidadeCotas: Int!
+}
+
+type Cota {
+  id: Int!
+  numeroCota: String!
+  tipo: String!
+  status: String!
+  valor: Float!
+}
+
+type Cadastro {
+  id: Int!
+  cotaId: Int!
+  numeroCota: Int!
+  nomeUsuario: String!
+  contato: String!
+  parcelamento: String!
+  tipo: String!
+  valor: Float!
+  dataCadastro: String!
+}
+
+type Query {
+  getCadastros(username: String!, numeroCota: String!): [Cadastro!]!
+  getCadastro(id: Float!, username: String!, numeroCota: String!): Cadastro!
+  getConsorcios: [Consorcio!]!
+  getConsorcio(id: Int!): Consorcio!
+  getCotas: [Cota!]!
+  getCota(id: Int!): Cota!
+}
+
+type Mutation {
+  createCadastro(input: CreateCadastroInput!): Cadastro!
+  updateCadastro(id: Float!, input: UpdateCadastroInput!): Cadastro!
+  deleteCadastro(id: Float!): Boolean!
+}
+
+input CreateCadastroInput {
+  cotaId: Int!
+  numeroCota: Int!
+  nomeUsuario: String!
+  contato: String!
+  parcelamento: String!
+  tipo: String!
+  valor: Float!
+}
+
+input UpdateCadastroInput {
+  nomeUsuario: String
+  contato: String
+  parcelamento: String
+}
